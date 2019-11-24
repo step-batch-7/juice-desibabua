@@ -2,3 +2,4 @@ node_modules/
 todo
 *.swp
 *.swo
+.nyc_output/
