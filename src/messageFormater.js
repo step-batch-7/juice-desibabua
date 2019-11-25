@@ -9,7 +9,7 @@ const messageForSave = function(userArgs, time) {
 };
 
 const messageForQuerry = function(userArgs, time, Data) {
-  let message = ["Employee ID, Beverage, Quantity, Date"];
+  let message = [];
   let transOfGivenEmploy = Data.reduce(function(
     initialmessage,
     currentTransaction
@@ -18,6 +18,14 @@ const messageForQuerry = function(userArgs, time, Data) {
     return initialmessage;
   },
   message);
+  // return message;
+  let dataToPrint = message.slice();
+  let totalDrinks = dataToPrint.reduce(function(total, element) {
+    element1 = element.split(",");
+    return +element1[2] + total;
+  }, 0);
+  message.push("total drinks :" + totalDrinks);
+  message.unshift("Employee ID, Beverage, Quantity, Date")
   return message;
 };
 

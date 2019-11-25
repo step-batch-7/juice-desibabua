@@ -10,11 +10,11 @@ const optionChecker = function(options) {
   if (options == "--query") {
     return [transactionDetail, messageForQuerry];
   }
-  return wrongInput;
+  return [wrongInput, wrongInput];
 };
 
 const wrongInput = function() {
-  return "hii";
+  return ["you have written a wrong option"];
 };
 
 exports.optionChecker = optionChecker;

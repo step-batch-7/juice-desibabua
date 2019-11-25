@@ -22,7 +22,7 @@ describe("optionChecker", function() {
       ]);
     });
     it("should return wrongInput for option as any random value", function() {
-      assert.deepStrictEqual(optionChecker("asdfh"), wrongInput);
+      assert.deepStrictEqual(optionChecker("asdfh"), [wrongInput, wrongInput]);
     });
   });
 });
