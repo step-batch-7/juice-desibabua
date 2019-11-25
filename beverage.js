@@ -12,8 +12,6 @@ const main = function() {
   const workToDo = optionChecker(options);
   const time = new Date().toJSON();
   let data = workToDo[0](userArgs, initialInput, addres, time);
-  console.log("value of Data : ", data);
-  console.log("value of userArgs : ", userArgs);
   let finalMessage = workToDo[1](userArgs, time, data);
   console.log(concater(finalMessage, "\n"));
 };
