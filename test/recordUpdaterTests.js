@@ -12,7 +12,7 @@ describe("currentBeverageDetail", function() {
       ["-beverage", "watermelon", "- EmployID", "13984", "qty", "1"],
       time
     );
-    let expected = { beverage: "watermelon", qty: "1", time: "date1" };
+    let expected = ["13984", "watermelon", "1", "date1"];
     assert.deepStrictEqual(actual, expected);
   });
 });
@@ -32,7 +32,7 @@ describe("record Updater", function() {
     let time = "date1";
     let actualValue = recordUpdater(userArgs, previousData, address, time);
     let expectedValue = {
-      "13984": [{ beverage: "watermelon", qty: "1", time: "date1" }]
+      "13984": [["13984", "watermelon", "1", "date1"]]
     };
     assert.deepStrictEqual(actualValue, expectedValue);
   });
@@ -47,14 +47,14 @@ describe("record Updater", function() {
       "1"
     ];
     let previousData = {
-      "13984": [{ beverage: "watermelon", qty: "1", time: "date1" }]
+      "13984": [["13984", "watermelon", "1", "date1"]]
     };
     let time = "date2";
     let actualValue = recordUpdater(userArgs, previousData, address, time);
     let expectedValue = {
       "13984": [
-        { beverage: "watermelon", qty: "1", time: "date1" },
-        { beverage: "watermelon", qty: "1", time: "date2" }
+        ["13984", "watermelon", "1", "date1"],
+        ["13984", "watermelon", "1", "date2"]
       ]
     };
     assert.deepStrictEqual(actualValue, expectedValue);
@@ -64,20 +64,20 @@ describe("record Updater", function() {
     let userArgs = ["-beverage", "orange", "- EmployID", "139", "qty", "1"];
     let previousData = {
       "13984": [
-        { beverage: "watermelon", qty: "1", time: "date1" },
-        { beverage: "watermelon", qty: "1", time: "date2" }
+        ["13984", "watermelon", "1", "date1"],
+        ["13984", "watermelon", "1", "date2"]
       ]
     };
     let time = "date3";
     let actualValue = recordUpdater(userArgs, previousData, address, time);
     let expectedValue = {
       "13984": [
-        { beverage: "watermelon", qty: "1", time: "date1" },
-        { beverage: "watermelon", qty: "1", time: "date2" }
+        ["13984", "watermelon", "1", "date1"],
+        ["13984", "watermelon", "1", "date2"]
       ],
-      "139": [{ beverage: "orange", qty: "1", time: "date3" }]
+      "139": [["139", "orange", "1", "date3"]]
     };
     assert.deepStrictEqual(actualValue, expectedValue);
-    fs.writeFileSync(address, "", "utf8");
+    fs.unlinkSync(address);
   });
 });

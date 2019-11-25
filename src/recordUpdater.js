@@ -2,10 +2,11 @@ const fs = require("fs");
 const finalDataWriter = require("./fileReaderAndWriter").finalDataWriter;
 
 const currentBeverageDetail = function(userArgs, time) {
-  let detail = {};
-  detail.beverage = userArgs[1];
-  detail.qty = userArgs[5];
-  detail.time = time;
+  let detail = [];
+  detail.push(userArgs[3]);
+  detail.push(userArgs[1]);
+  detail.push(userArgs[5]);
+  detail.push(time);
   return detail;
 };
 

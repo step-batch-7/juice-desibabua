@@ -1,15 +1,15 @@
 const fs = require("fs");
 
 const previousData = function(address) {
-  if (!fs.existsSync(address)) {
-    return {};
-  }
   let previousRecords = fs.readFileSync(address, "utf8");
+  if (previousRecords.length === 0) {
+    previousRecords = "{}";
+  }
   return JSON.parse(previousRecords);
 };
 
 const finalDataWriter = function(address, input) {
-  const datatoWrite = JSON.stringify(input);
+  const datatoWrite = JSON.stringify(input, null, 2);
   fs.writeFileSync(address, datatoWrite);
 };
 
