@@ -17,7 +17,7 @@ const recordUpdater = function(userArgs, previousData, address, time) {
   }
   initialData[userArgs[3]].push(currentBeverageDetail(userArgs, time));
   let finalData = initialData;
-  finalDataWriter(address, finalData);
+  finalDataWriter(address, finalData, fs.writeFileSync);
   return initialData;
 };
 

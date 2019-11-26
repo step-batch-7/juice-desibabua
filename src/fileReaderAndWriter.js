@@ -1,16 +1,19 @@
 const fs = require("fs");
+const assert = require("assert");
 
-const previousData = function(address) {
-  let previousRecords = fs.readFileSync(address, "utf8");
-  if (previousRecords.length === 0) {
-    previousRecords = "{}";
+const previousData = function(address, isExist, reader, encoder) {
+  // if (fs.existsSync(address)) {
+  if (isExist(address)) {
+    let previousRecords = reader(address, encoder);
+    return JSON.parse(previousRecords);
   }
-  return JSON.parse(previousRecords);
+  return {};
 };
 
-const finalDataWriter = function(address, input) {
+const finalDataWriter = function(address, input,writer) {
   const datatoWrite = JSON.stringify(input, null, 2);
-  fs.writeFileSync(address, datatoWrite);
+  writer(address, datatoWrite);
+  return true;
 };
 
 exports.previousData = previousData;

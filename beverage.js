@@ -8,7 +8,12 @@ const main = function() {
   const options = process.argv[2];
   const userArgs = process.argv.slice(3);
   const addres = "./src/beverageRecord.JSON";
-  const initialInput = previousData(addres);
+  const initialInput = previousData(
+    addres,
+    fs.existsSync,
+    fs.readFileSync,
+    "utf8"
+  );
   const workToDo = optionChecker(options);
   const time = new Date().toJSON();
   let data = workToDo[0](userArgs, initialInput, addres, time);

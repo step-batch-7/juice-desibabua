@@ -26,3 +26,11 @@ describe("optionChecker", function() {
     });
   });
 });
+
+describe("messageForWrongOption", function() {
+  it("should give correct message for wrong Options", function() {
+    let actualValue = wrongInput();
+    let expectedValue = ["you have written a wrong option"];
+    assert.deepStrictEqual(actualValue, expectedValue);
+  });
+});

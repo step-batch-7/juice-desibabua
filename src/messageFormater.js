@@ -1,16 +1,20 @@
 const currentBeverageDetail = require("./recordUpdater").currentBeverageDetail;
 
+const header = function(){
+  return "Employee ID,Beverage,Quantity,Date";
+}
+
 const messageForSave = function(userArgs, time) {
-  let message = ["Transaction Recorded:", "Employee ID,Beverage,Quantity,Date"];
+  let message = ["Transaction Recorded:", header()];
   let currentMessage = currentBeverageDetail(userArgs, time);
   currentMessage = currentMessage.toString();
   message.push(currentMessage);
   return message;
 };
 
-const messageForQuerry = function(userArgs, time, Data) {
+const messageForQuerry = function(userArgs, time, data) {
   let message = [];
-  let transOfGivenEmploy = Data.reduce(function(
+  let transOfGivenEmploy = data.reduce(function(
     initialmessage,
     currentTransaction
   ) {
@@ -25,7 +29,7 @@ const messageForQuerry = function(userArgs, time, Data) {
     return +element1[2] + total;
   }, 0);
   message.push("total drinks :" + totalDrinks);
-  message.unshift("Employee ID, Beverage, Quantity, Date")
+  message.unshift(header())
   return message;
 };
 
