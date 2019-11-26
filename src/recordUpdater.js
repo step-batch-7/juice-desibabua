@@ -1,24 +1,24 @@
 const fs = require("fs");
 const finalDataWriter = require("./fileReaderAndWriter").finalDataWriter;
 
-const currentBeverageDetail = function(userArgs, time) {
+const currentBeverageDetail = function(userArgs, currentTime) {
   let detail = [];
   detail.push(userArgs[3]);
   detail.push(userArgs[1]);
   detail.push(userArgs[5]);
-  detail.push(time);
+  detail.push(currentTime);
   return detail;
 };
 
-const recordUpdater = function(userArgs, previousData, address, time) {
-  const initialData = previousData;
-  if (!Object.keys(initialData).includes(userArgs[3])) {
-    initialData[userArgs[3]] = [];
+const recordUpdater = function(userArgs, previousTransactionOfEmploy, address, currentTime) {
+  const currentTransactionsOfEmploy = previousTransactionOfEmploy;
+  if (!Object.keys(currentTransactionsOfEmploy).includes(userArgs[3])) {
+    currentTransactionsOfEmploy[userArgs[3]] = [];
   }
-  initialData[userArgs[3]].push(currentBeverageDetail(userArgs, time));
-  let finalData = initialData;
+  currentTransactionsOfEmploy[userArgs[3]].push(currentBeverageDetail(userArgs, currentTime));
+  let finalData = currentTransactionsOfEmploy;
   finalDataWriter(address, finalData, fs.writeFileSync);
-  return initialData;
+  return currentTransactionsOfEmploy;
 };
 
 exports.currentBeverageDetail = currentBeverageDetail;

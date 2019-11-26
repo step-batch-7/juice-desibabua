@@ -1,14 +1,14 @@
 const fs = require("fs");
 
 const optionChecker = require("./src/optionChecker").optionChecker;
-const previousData = require("./src/fileReaderAndWriter.js").previousData;
-const concater = require("./src/messageFormater").concater;
+const previousTransactions = require("./src/fileReaderAndWriter.js").previousTransactions;
+const concateWithNewLine = require("./src/messageFormater").concateWithNewLine;
 
 const main = function() {
   const options = process.argv[2];
   const userArgs = process.argv.slice(3);
   const addres = "./src/beverageRecord.JSON";
-  const initialInput = previousData(
+  const initialInput = previousTransactions(
     addres,
     fs.existsSync,
     fs.readFileSync,
@@ -16,9 +16,9 @@ const main = function() {
   );
   const workToDo = optionChecker(options);
   const time = new Date().toJSON();
-  let data = workToDo[0](userArgs, initialInput, addres, time);
-  let finalMessage = workToDo[1](userArgs, time, data);
-  console.log(concater(finalMessage, "\n"));
+  let transactionsOfGivenEmploy = workToDo[0](userArgs, initialInput, addres, time);
+  let finalMessage = workToDo[1](userArgs, time, transactionsOfGivenEmploy);
+  console.log(concateWithNewLine(finalMessage, "\n"));
 };
 
 main();

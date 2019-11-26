@@ -28,9 +28,9 @@ describe("record Updater", function() {
       "qty",
       "1"
     ];
-    let previousData = {};
+    let previousTransactions = {};
     let time = "date1";
-    let actualValue = recordUpdater(userArgs, previousData, address, time);
+    let actualValue = recordUpdater(userArgs, previousTransactions, address, time);
     let expectedValue = {
       "13984": [["13984", "watermelon", "1", "date1"]]
     };
@@ -46,11 +46,11 @@ describe("record Updater", function() {
       "qty",
       "1"
     ];
-    let previousData = {
+    let previousTransactions = {
       "13984": [["13984", "watermelon", "1", "date1"]]
     };
     let time = "date2";
-    let actualValue = recordUpdater(userArgs, previousData, address, time);
+    let actualValue = recordUpdater(userArgs, previousTransactions, address, time);
     let expectedValue = {
       "13984": [
         ["13984", "watermelon", "1", "date1"],
@@ -62,14 +62,14 @@ describe("record Updater", function() {
 
   it("should update record when there are some previous records.", function() {
     let userArgs = ["-beverage", "orange", "- EmployID", "139", "qty", "1"];
-    let previousData = {
+    let previousTransactions = {
       "13984": [
         ["13984", "watermelon", "1", "date1"],
         ["13984", "watermelon", "1", "date2"]
       ]
     };
     let time = "date3";
-    let actualValue = recordUpdater(userArgs, previousData, address, time);
+    let actualValue = recordUpdater(userArgs, previousTransactions, address, time);
     let expectedValue = {
       "13984": [
         ["13984", "watermelon", "1", "date1"],

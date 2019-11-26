@@ -1,4 +1,4 @@
-const previousData = require("../src/fileReaderAndWriter").previousData;
+const previousTransaction = require("../src/fileReaderAndWriter").previousTransactions;
 const finalDataWriter = require("../src/fileReaderAndWriter").finalDataWriter;
 const assert = require("assert");
 
@@ -8,7 +8,7 @@ describe("previous Data", function() {
       assert.ok(address, "correctAddress");
       return false;
     };
-    assert.deepStrictEqual(previousData("correctAddress", isExist), {});
+    assert.deepStrictEqual(previousTransaction("correctAddress", isExist), {});
   });
 
   it("is Exist true test", function() {
@@ -21,7 +21,7 @@ describe("previous Data", function() {
       return '{"1":3}';
     };
     assert.deepStrictEqual(
-      previousData("correctAddress", isExist, reader, "correctEncoder"),
+      previousTransaction("correctAddress", isExist, reader, "correctEncoder"),
       { 1: 3 }
     );
   });

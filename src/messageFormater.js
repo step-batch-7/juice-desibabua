@@ -1,42 +1,37 @@
 const currentBeverageDetail = require("./recordUpdater").currentBeverageDetail;
 
-const header = function(){
+const header = function() {
   return "Employee ID,Beverage,Quantity,Date";
-}
+};
 
 const messageForSave = function(userArgs, time) {
-  let message = ["Transaction Recorded:", header()];
+  let messageToDisplay = ["Transaction Recorded:", header()];
   let currentMessage = currentBeverageDetail(userArgs, time);
   currentMessage = currentMessage.toString();
-  message.push(currentMessage);
-  return message;
+  messageToDisplay.push(currentMessage);
+  return messageToDisplay;
 };
 
 const messageForQuerry = function(userArgs, time, data) {
-  let message = [];
-  let transOfGivenEmploy = data.reduce(function(
-    initialmessage,
-    currentTransaction
-  ) {
+  let messageToDisplay = [];
+  data.reduce(function(initialmessage, currentTransaction) {
     initialmessage.push(currentTransaction.toString());
     return initialmessage;
-  },
-  message);
-  // return message;
-  let dataToPrint = message.slice();
+  }, messageToDisplay);
+  let dataToPrint = messageToDisplay.slice();
   let totalDrinks = dataToPrint.reduce(function(total, element) {
     element1 = element.split(",");
     return +element1[2] + total;
   }, 0);
-  message.push("total drinks :" + totalDrinks);
-  message.unshift(header())
-  return message;
+  messageToDisplay.push("total drinks :" + totalDrinks);
+  messageToDisplay.unshift(header());
+  return messageToDisplay;
 };
 
-const concater = function(array, joiner) {
-  return array.join(joiner);
+const concateWithNewLine = function(arrayOfStrings, joiner) {
+  return arrayOfStrings.join(joiner);
 };
 
 exports.messageForSave = messageForSave;
 exports.messageForQuerry = messageForQuerry;
-exports.concater = concater;
+exports.concateWithNewLine = concateWithNewLine;

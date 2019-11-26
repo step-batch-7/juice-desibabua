@@ -13,6 +13,13 @@ const optionChecker = function(options) {
   return [wrongInput, wrongInput];
 };
 
+// const optionChecker = function(option){
+//   let optionTypes = {}
+//   optionTypes["--save"] = [recordUpdater, messageForSave]
+//   optionTypes["--query"] = [transactionDetail, messageForQuerry]
+//   return optionTypes[option];
+// }
+
 const wrongInput = function() {
   return ["you have written a wrong option"];
 };

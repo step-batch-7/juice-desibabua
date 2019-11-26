@@ -1,7 +1,7 @@
 const assert = require("assert");
 const messageForSave = require("../src/messageFormater").messageForSave;
 const messageForQuerry = require("../src/messageFormater").messageForQuerry;
-const concater = require("../src/messageFormater").concater;
+const concateWithNewLine = require("../src/messageFormater").concateWithNewLine;
 
 describe("messageForSave", function() {
   it("should give correct formate message for save option", function() {
@@ -37,7 +37,7 @@ describe("messageForQuerry", function() {
 
 describe("concater", function() {
   it("should concate strings in an array ", function() {
-    let actualValue = concater(["hello", "world"], "\n");
+    let actualValue = concateWithNewLine(["hello", "world"], "\n");
     let expectedValue = "hello\nworld";
     assert.deepStrictEqual(actualValue, expectedValue);
   });

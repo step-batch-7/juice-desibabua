@@ -1,9 +1,8 @@
 const fs = require("fs");
 const assert = require("assert");
 
-const previousData = function(address, isExist, reader, encoder) {
-  // if (fs.existsSync(address)) {
-  if (isExist(address)) {
+const previousTransactions = function(address, isFileExist, reader, encoder) {
+  if (isFileExist(address)) {
     let previousRecords = reader(address, encoder);
     return JSON.parse(previousRecords);
   }
@@ -16,5 +15,5 @@ const finalDataWriter = function(address, input,writer) {
   return true;
 };
 
-exports.previousData = previousData;
+exports.previousTransactions = previousTransactions;
 exports.finalDataWriter = finalDataWriter;
