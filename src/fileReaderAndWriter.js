@@ -6,7 +6,7 @@ const previousTransactions = function(address, isFileExist, reader, encoder) {
     let previousRecords = reader(address, encoder);
     return JSON.parse(previousRecords);
   }
-  return {};
+  return [];
 };
 
 const finalDataWriter = function(address, input,writer) {

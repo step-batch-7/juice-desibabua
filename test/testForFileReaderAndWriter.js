@@ -8,7 +8,7 @@ describe("previous Data", function() {
       assert.ok(address, "correctAddress");
       return false;
     };
-    assert.deepStrictEqual(previousTransaction("correctAddress", isExist), {});
+    assert.deepStrictEqual(previousTransaction("correctAddress", isExist), []);
   });
 
   it("is Exist true test", function() {

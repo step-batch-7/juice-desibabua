@@ -6,7 +6,8 @@ const header = function() {
 
 const messageForSave = function(userArgs, time) {
   let messageToDisplay = ["Transaction Recorded:", header()];
-  let currentMessage = currentBeverageDetail(userArgs, time);
+  let currentTransaction = currentBeverageDetail(userArgs, time);
+  let currentMessage = [currentTransaction.empId,currentTransaction.beverage,currentTransaction.qty,currentTransaction.date]
   currentMessage = currentMessage.toString();
   messageToDisplay.push(currentMessage);
   return messageToDisplay;
@@ -15,13 +16,11 @@ const messageForSave = function(userArgs, time) {
 const messageForQuerry = function(userArgs, time, data) {
   let messageToDisplay = [];
   data.reduce(function(initialmessage, currentTransaction) {
-    initialmessage.push(currentTransaction.toString());
+    initialmessage.push(Object.values(currentTransaction).toString());
     return initialmessage;
   }, messageToDisplay);
-  let dataToPrint = messageToDisplay.slice();
-  let totalDrinks = dataToPrint.reduce(function(total, element) {
-    element1 = element.split(",");
-    return +element1[2] + total;
+  let totalDrinks = data.reduce(function(total, element) {
+    return +element["qty"] + total;
   }, 0);
   messageToDisplay.push("total drinks :" + totalDrinks);
   messageToDisplay.unshift(header());
