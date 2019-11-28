@@ -7,7 +7,12 @@ const header = function() {
 const messageForSave = function(userArgs, time) {
   let messageToDisplay = ["Transaction Recorded:", header()];
   let currentTransaction = currentBeverageDetail(userArgs, time);
-  let currentMessage = [currentTransaction.empId,currentTransaction.beverage,currentTransaction.qty,currentTransaction.date]
+  let currentMessage = [
+    currentTransaction.empId,
+    currentTransaction.beverage,
+    currentTransaction.qty,
+    currentTransaction.date.toJSON()
+  ];
   currentMessage = currentMessage.toString();
   messageToDisplay.push(currentMessage);
   return messageToDisplay;

@@ -6,14 +6,15 @@ const concateWithNewLine = require("../src/messageFormater").concateWithNewLine;
 
 describe("messageForSave", function() {
   it("should give correct formate message for save option", function() {
+    let time = new Date()
     let actualValue = messageForSave(
       ["-beverage", "orange", "-EmployID", "133", "qty", "2"],
-      "time1"
+      time
     );
     let expectedValue = [
       "Transaction Recorded:",
       "Employee ID,Beverage,Quantity,Date",
-      "133,orange,2,time1"
+      "133,orange,2,"+ time.toJSON()
     ];
     assert.deepStrictEqual(actualValue, expectedValue);
   });
