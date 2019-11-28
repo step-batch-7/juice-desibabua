@@ -17,6 +17,11 @@ const transactionDetail = function(userArgs, transactions) {
   }
   filterWithSecondArgument = filterer(userArgs[2], userArgs[3]);
   filteredTransactions = filteredTransactions.filter(filterWithSecondArgument);
+  if (userArgs.length <= 4) {
+    return filteredTransactions;
+  }
+  filterWithSecondArgument = filterer(userArgs[4], userArgs[5]);
+  filteredTransactions = filteredTransactions.filter(filterWithSecondArgument);
   return filteredTransactions;
 };
 
