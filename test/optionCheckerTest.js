@@ -1,4 +1,5 @@
-const assert = require("assert");
+const chai = require('chai');
+const assert = chai.assert;
 const optionChecker = require("../src/optionChecker.js").optionChecker;
 const wrongInput = require("../src/optionChecker.js").wrongInput;
 const messageForSave = require("../src/messageFormater").messageForSave;

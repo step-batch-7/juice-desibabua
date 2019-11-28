@@ -1,4 +1,5 @@
-const assert = require("assert");
+const chai = require('chai');
+const assert = chai.assert;
 const fs = require("fs");
 
 const currentBeverageDetail = require("../src/recordUpdater")

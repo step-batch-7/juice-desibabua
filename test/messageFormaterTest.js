@@ -1,4 +1,5 @@
-const assert = require("assert");
+const chai = require('chai');
+const assert = chai.assert;
 const messageForSave = require("../src/messageFormater").messageForSave;
 const messageForQuerry = require("../src/messageFormater").messageForQuerry;
 const concateWithNewLine = require("../src/messageFormater").concateWithNewLine;

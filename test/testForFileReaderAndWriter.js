@@ -1,6 +1,7 @@
+const chai = require('chai');
+const assert = chai.assert;
 const previousTransaction = require("../src/fileReaderAndWriter").previousTransactions;
 const finalDataWriter = require("../src/fileReaderAndWriter").finalDataWriter;
-const assert = require("assert");
 
 describe("previous Data", function() {
   it("isExist false test", function() {
