@@ -15,7 +15,7 @@ const main = function() {
     "utf8"
   );
   const workToDo = optionChecker(options);
-  const time = new Date().toJSON();
+  const time = new Date();
   let transactionsOfGivenEmploy = workToDo[0](userArgs, initialInput, addres, time);
   let finalMessage = workToDo[1](userArgs, time, transactionsOfGivenEmploy);
   console.log(concateWithNewLine(finalMessage, "\n"));

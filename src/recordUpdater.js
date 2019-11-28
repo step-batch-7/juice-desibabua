@@ -6,7 +6,7 @@ const currentBeverageDetail = function(userArgs, currentTime) {
   detail.empId = userArgs[3];
   detail.beverage = userArgs[1];
   detail.qty = userArgs[5];
-  detail.date = currentTime;
+  detail.date = currentTime.toJSON();
   return detail;
 };
 
