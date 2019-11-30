@@ -31,7 +31,7 @@ describe("messageForQuerry", function() {
       "Employee ID,Beverage,Quantity,Date",
       "133,orange,2,2019-11-25T05:25:33.713Z",
       "133,orange,2,2019-11-25T05:25:40.675Z",
-      "total drinks :4"
+      "total: 4 Juices"
     ];
     assert.deepStrictEqual(actualValue, expectedValue);
   });

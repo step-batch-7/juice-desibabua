@@ -1,11 +1,11 @@
 const currentBeverageDetail = require("./recordUpdater").currentBeverageDetail;
 
 const header = function() {
-  return "Employee ID,Beverage,Quantity,Date";
+  return `Employee ID,Beverage,Quantity,Date`;
 };
 
 const messageForSave = function(userArgs, time) {
-  let messageToDisplay = ["Transaction Recorded:", header()];
+  let messageToDisplay = [`Transaction Recorded:`, header()];
   let currentTransaction = currentBeverageDetail(userArgs, time);
   let currentMessage = [
     currentTransaction.empId,
@@ -25,9 +25,9 @@ const messageForQuerry = function(userArgs, time, data) {
     return initialmessage;
   }, messageToDisplay);
   let totalDrinks = data.reduce(function(total, element) {
-    return +element["qty"] + total;
+    return +element.qty + total;
   }, 0);
-  messageToDisplay.push("total drinks :" + totalDrinks);
+  messageToDisplay.push(`total: ${totalDrinks} Juices`);
   messageToDisplay.unshift(header());
   return messageToDisplay;
 };

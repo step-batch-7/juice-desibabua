@@ -1,6 +1,3 @@
-const fs = require("fs");
-const assert = require("assert");
-
 const previousTransactions = function(address, isFileExist, reader, encoder) {
   if (isFileExist(address)) {
     let previousRecords = reader(address, encoder);

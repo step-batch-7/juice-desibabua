@@ -1,0 +1,44 @@
+[
+  {
+    "empId": "112",
+    "beverage": "orange",
+    "qty": "3",
+    "date": "2019-11-29T03:51:19.110Z"
+  },
+  {
+    "empId": "112",
+    "beverage": "watermelon",
+    "qty": "3",
+    "date": "2019-11-30T03:51:33.797Z"
+  },
+  {
+    "empId": "111",
+    "beverage": "watermelon",
+    "qty": "3",
+    "date": "2019-11-29T03:51:40.413Z"
+  },
+  {
+    "empId": "111",
+    "beverage": "orange",
+    "qty": "3",
+    "date": "2019-11-30T03:51:53.286Z"
+  },
+  {
+    "empId": "112",
+    "beverage": "orange",
+    "qty": "2",
+    "date": "2019-11-28T17:06:32.463Z"
+  },
+  {
+    "empId": "112",
+    "beverage": "orange",
+    "qty": "2",
+    "date": "2019-11-28T17:06:32.463Z"
+  },
+  {
+    "empId": "111",
+    "beverage": "orange",
+    "qty": "2",
+    "date": "2019-11-28T17:06:32.463Z"
+  }
+]

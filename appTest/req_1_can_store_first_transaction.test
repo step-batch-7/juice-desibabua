@@ -1,0 +1,4 @@
+(export path="./appTest/transactionsRecordsForTesting.json";export date="2020-11-28T17:06:32.463Z"; node beverage.js --save --beverage orange --empId 112 --qty 2)
+Transaction Recorded:
+Employee ID,Beverage,Quantity,Date
+112,orange,2,2020-11-28T17:06:32.463Z

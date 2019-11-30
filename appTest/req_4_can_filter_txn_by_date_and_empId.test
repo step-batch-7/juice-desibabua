@@ -1,0 +1,4 @@
+(export path="./appTest/testRecords.json"; node beverage.js --query empId 112 date 2019-11-30)
+Employee ID,Beverage,Quantity,Date
+112,watermelon,3,2019-11-30T03:51:33.797Z
+total: 3 Juices

@@ -1,10 +1,8 @@
-const fs = require("fs");
-
 const filterer = function(key, value) {
   return function(element) {
     return (
       element[key] == value ||
-      new Date(element["date"]).toJSON().slice(0, 10) == value
+      new Date(element.date).toJSON().slice(0, 10) == value
     );
   };
 };
