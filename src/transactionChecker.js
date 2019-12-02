@@ -8,19 +8,12 @@ const filterer = function(key, value) {
 };
 
 const transactionDetail = function(userArgs, transactions) {
-  const filterWithFirstArgument = filterer(userArgs[0], userArgs[1]);
-  let filteredTransactions = transactions.filter(filterWithFirstArgument);
-  if (userArgs.length <= 2) {
-    return filteredTransactions;
+  let filteredTransactions = transactions
+  for(let idx = 0;idx<userArgs.length;idx+=2){
+    let filterAccordingtoFields = filterer(userArgs[idx],userArgs[idx+1]);
+    filteredTransactions = filteredTransactions.filter(filterAccordingtoFields)
   }
-  filterWithSecondArgument = filterer(userArgs[2], userArgs[3]);
-  filteredTransactions = filteredTransactions.filter(filterWithSecondArgument);
-  if (userArgs.length <= 4) {
-    return filteredTransactions;
-  }
-  filterWithSecondArgument = filterer(userArgs[4], userArgs[5]);
-  filteredTransactions = filteredTransactions.filter(filterWithSecondArgument);
-  return filteredTransactions;
+  return filteredTransactions
 };
 
 exports.transactionDetail = transactionDetail;
