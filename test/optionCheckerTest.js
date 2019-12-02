@@ -1,12 +1,9 @@
-const chai = require('chai');
+const chai = require("chai");
 const assert = chai.assert;
-const optionChecker = require("../src/optionChecker.js").optionChecker;
-const wrongInput = require("../src/optionChecker.js").wrongInput;
-const messageForSave = require("../src/messageFormater").messageForSave;
-const messageForQuerry = require("../src/messageFormater").messageForQuerry;
-const recordUpdater = require("../src/recordUpdater.js").recordUpdater;
-const transactionDetail = require("../src/transactionChecker.js")
-  .transactionDetail;
+const { optionChecker, wrongInput } = require("../src/optionChecker.js");
+const { messageForSave, messageForQuerry } = require("../src/messageFormater");
+const { recordUpdater } = require("../src/recordUpdater.js");
+const { transactionDetail } = require("../src/transactionChecker.js");
 
 describe("optionChecker", function() {
   describe("should give function reference", function() {

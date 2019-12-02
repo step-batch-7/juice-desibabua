@@ -36,6 +36,4 @@ const concateWithNewLine = function(arrayOfStrings, joiner) {
   return arrayOfStrings.join(joiner);
 };
 
-exports.messageForSave = messageForSave;
-exports.messageForQuerry = messageForQuerry;
-exports.concateWithNewLine = concateWithNewLine;
+module.exports = {messageForSave,messageForQuerry,concateWithNewLine};

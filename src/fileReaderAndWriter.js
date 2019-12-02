@@ -12,5 +12,4 @@ const finalDataWriter = function(address, input,writer) {
   return true;
 };
 
-exports.previousTransactions = previousTransactions;
-exports.finalDataWriter = finalDataWriter;
+module.exports = {previousTransactions,finalDataWriter};

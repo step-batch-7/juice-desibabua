@@ -16,4 +16,4 @@ const transactionDetail = function(userArgs, transactions) {
   return filteredTransactions
 };
 
-exports.transactionDetail = transactionDetail;
+module.exports= {transactionDetail};

@@ -2,9 +2,7 @@ const chai = require('chai');
 const assert = chai.assert;
 const fs = require("fs");
 
-const currentBeverageDetail = require("../src/recordUpdater")
-  .currentBeverageDetail;
-const recordUpdater = require("../src/recordUpdater").recordUpdater;
+const {currentBeverageDetail ,recordUpdater} = require("../src/recordUpdater");
 
 describe("currentBeverageDetail", function() {
   it("it should make a correct object for given argument", function() {

@@ -1,7 +1,6 @@
 const chai = require("chai");
 const assert = chai.assert;
-const transactionDetail = require("../src/transactionChecker.js")
-  .transactionDetail;
+const { transactionDetail } = require("../src/transactionChecker.js");
 
 describe("transactionDetail", function() {
   it("should find transactions of a given employ", function() {

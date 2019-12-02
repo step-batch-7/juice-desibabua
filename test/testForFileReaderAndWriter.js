@@ -1,7 +1,9 @@
-const chai = require('chai');
+const chai = require("chai");
 const assert = chai.assert;
-const previousTransaction = require("../src/fileReaderAndWriter").previousTransactions;
-const finalDataWriter = require("../src/fileReaderAndWriter").finalDataWriter;
+const {
+  previousTransactions,
+  finalDataWriter
+} = require("../src/fileReaderAndWriter");
 
 describe("previous Data", function() {
   it("isExist false test", function() {
@@ -9,7 +11,7 @@ describe("previous Data", function() {
       assert.ok(address, "correctAddress");
       return false;
     };
-    assert.deepStrictEqual(previousTransaction("correctAddress", isExist), []);
+    assert.deepStrictEqual(previousTransactions("correctAddress", isExist), []);
   });
 
   it("is Exist true test", function() {
@@ -22,7 +24,7 @@ describe("previous Data", function() {
       return '{"1":3}';
     };
     assert.deepStrictEqual(
-      previousTransaction("correctAddress", isExist, reader, "correctEncoder"),
+      previousTransactions("correctAddress", isExist, reader, "correctEncoder"),
       { 1: 3 }
     );
   });

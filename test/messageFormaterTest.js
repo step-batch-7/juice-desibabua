@@ -1,8 +1,6 @@
 const chai = require('chai');
 const assert = chai.assert;
-const messageForSave = require("../src/messageFormater").messageForSave;
-const messageForQuerry = require("../src/messageFormater").messageForQuerry;
-const concateWithNewLine = require("../src/messageFormater").concateWithNewLine;
+const {messageForSave,messageForQuerry,concateWithNewLine} = require("../src/messageFormater");
 
 describe("messageForSave", function() {
   it("should give correct formate message for save option", function() {

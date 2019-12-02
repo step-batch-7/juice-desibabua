@@ -25,5 +25,4 @@ const recordUpdater = function(
   return currentTransactionsOfEmploy;
 };
 
-exports.currentBeverageDetail = currentBeverageDetail;
-exports.recordUpdater = recordUpdater;
+module.exports= {currentBeverageDetail,recordUpdater};

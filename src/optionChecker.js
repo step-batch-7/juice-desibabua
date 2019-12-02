@@ -18,5 +18,4 @@ const wrongInput = function() {
   return [`you have written a wrong option`];
 };
 
-exports.optionChecker = optionChecker;
-exports.wrongInput = wrongInput;
+module.exports = { optionChecker, wrongInput };
