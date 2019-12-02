@@ -4,15 +4,15 @@ const optionChecker = require("./src/optionChecker").optionChecker;
 const previousTransactions = require("./src/fileReaderAndWriter.js")
   .previousTransactions;
 const concateWithNewLine = require("./src/messageFormater").concateWithNewLine;
+const { getDate ,getPath} = require("./src/config");
 
 const main = function() {
-  const dtime = process.env.date || new Date().toJSON();
-  const time = new Date(dtime);
+  const time = getDate(process.env);
   const options = process.argv[2];
   const userArgs = process.argv.slice(3);
-  const addres = process.env.path || "./src/beverageRecord.JSON";
+  const address = getPath(process.env)
   const initialInput = previousTransactions(
-    addres,
+    address,
     fs.existsSync,
     fs.readFileSync,
     "utf8"
@@ -21,7 +21,7 @@ const main = function() {
   let transactionsOfGivenEmploy = workToDo[0](
     userArgs,
     initialInput,
-    addres,
+    address,
     time
   );
   let finalMessage = workToDo[1](userArgs, time, transactionsOfGivenEmploy);
