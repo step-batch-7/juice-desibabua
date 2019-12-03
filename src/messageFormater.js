@@ -27,7 +27,8 @@ const messageForQuerry = function(userArgs, time, data) {
   let totalDrinks = data.reduce(function(total, element) {
     return +element["--qty"] + total;
   }, 0);
-  messageToDisplay.push(`total: ${totalDrinks} Juices`);
+  let suffixOfJuice = totalDrinks<2 ? "Juice":"Juices"
+  messageToDisplay.push(`total: ${totalDrinks} ${suffixOfJuice}`);
   messageToDisplay.unshift(header());
   return messageToDisplay;
 };
