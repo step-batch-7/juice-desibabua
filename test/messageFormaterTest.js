@@ -6,7 +6,7 @@ describe("messageForSave", function() {
   it("should give correct formate message for save option", function() {
     let time = new Date()
     let actualValue = messageForSave(
-      ["-beverage", "orange", "-EmployID", "133", "qty", "2"],
+      ["--beverage", "orange", "--EmployID", "133", "--qty", "2"],
       time
     );
     let expectedValue = [
@@ -21,8 +21,8 @@ describe("messageForSave", function() {
 describe("messageForQuerry", function() {
   it("should give correct formate message for querry option with employ id", function() {
     let data = [
-      {"empId":"133", "beverage":"orange", "qty":"2", "date":"2019-11-25T05:25:33.713Z"},
-      {"empId":"133", "beverage":"orange", "qty":"2", "date":"2019-11-25T05:25:40.675Z"}
+      {"--empId":"133", "--beverage":"orange", "--qty":"2", "--date":"2019-11-25T05:25:33.713Z"},
+      {"--empId":"133", "--beverage":"orange", "--qty":"2", "--date":"2019-11-25T05:25:40.675Z"}
     ];
     let actualValue = messageForQuerry("random", "random", data);
     let expectedValue = [

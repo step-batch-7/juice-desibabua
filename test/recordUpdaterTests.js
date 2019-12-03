@@ -12,10 +12,10 @@ describe("currentBeverageDetail", function() {
       time
     );
     let expected = {
-      beverage: "watermelon",
-      date: "date1",
-      empId: "13984",
-      qty: "1"
+      "--beverage": "watermelon",
+      "--date": "date1",
+      "--empId": "13984",
+      "--qty": "1"
     };
     assert.deepStrictEqual(actual, expected);
   });
@@ -41,7 +41,7 @@ describe("record Updater", function() {
       time
     );
     let expectedValue = [
-      {"empId":"13984", "beverage":"watermelon", "qty":"1", "date":"date1"}
+      {"--empId":"13984", "--beverage":"watermelon", "--qty":"1", "--date":"date1"}
     ];
     assert.deepStrictEqual(actualValue, expectedValue);
   });
@@ -56,7 +56,7 @@ describe("record Updater", function() {
       "1"
     ];
     let previousTransactions = [
-      {"empId":"13984", "beverage":"watermelon", "qty":"1", "date":"date1"}
+      {"--empId":"13984", "--beverage":"watermelon", "--qty":"1", "--date":"date1"}
     ];
     let time = "date2";
     let actualValue = recordUpdater(
@@ -66,8 +66,8 @@ describe("record Updater", function() {
       time
     );
     let expectedValue = [
-      {"empId":"13984", "beverage":"watermelon", "qty":"1", "date":"date1"},
-      {"empId":"13984", "beverage":"orange", "qty":"1", "date":"date2"}
+      {"--empId":"13984", "--beverage":"watermelon", "--qty":"1", "--date":"date1"},
+      {"--empId":"13984", "--beverage":"orange", "--qty":"1", "--date":"date2"}
     ];
     assert.deepStrictEqual(actualValue, expectedValue);
   });
@@ -75,8 +75,8 @@ describe("record Updater", function() {
   it("should update record when there are some previous records.", function() {
     let userArgs = ["-beverage", "orange", "- EmployID", "139", "qty", "1"];
     let previousTransactions = [
-      {"empId":"13984", "beverage":"watermelon", "qty":"1", "date":"date1"},
-      {"empId":"13984", "beverage":"orange", "qty":"1", "date":"date2"}
+      {"--empId":"13984", "--beverage":"watermelon", "--qty":"1", "--date":"date1"},
+      {"--empId":"13984", "--beverage":"orange", "--qty":"1", "--date":"date2"}
     ];
     let time = "date3";
     let actualValue = recordUpdater(
@@ -86,9 +86,9 @@ describe("record Updater", function() {
       time
     );
     let expectedValue = [
-      {"empId":"13984", "beverage":"watermelon", "qty":"1", "date":"date1"},
-      {"empId":"13984", "beverage":"orange", "qty":"1", "date":"date2"},
-      {"empId":"139", "beverage":"orange", "qty":"1", "date":"date3"}
+      {"--empId":"13984", "--beverage":"watermelon", "--qty":"1", "--date":"date1"},
+      {"--empId":"13984", "--beverage":"orange", "--qty":"1", "--date":"date2"},
+      {"--empId":"139", "--beverage":"orange", "--qty":"1", "--date":"date3"}
     ];
     assert.deepStrictEqual(actualValue, expectedValue);
     fs.unlinkSync(address);

@@ -3,10 +3,10 @@ const finalDataWriter = require("./fileReaderAndWriter").finalDataWriter;
 
 const currentBeverageDetail = function(userArgs, currentTime) {
   let detail = {};
-  detail.empId = userArgs[3];
-  detail.beverage = userArgs[1];
-  detail.qty = userArgs[5];
-  detail.date = currentTime;
+  detail["--empId"] = userArgs[3];
+  detail["--beverage"] = userArgs[1];
+  detail["--qty"] = userArgs[5];
+  detail["--date"] = currentTime;
   return detail;
 };
 

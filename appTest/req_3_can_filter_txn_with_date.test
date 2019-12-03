@@ -1,4 +1,4 @@
-(export path="./appTest/testRecords.json"; node beverage.js --query date 2019-11-28)
+(export path="./appTest/testRecords.json"; node beverage.js --query --date 2019-11-28)
 Employee ID,Beverage,Quantity,Date
 112,orange,2,2019-11-28T17:06:32.463Z
 112,orange,2,2019-11-28T17:06:32.463Z
