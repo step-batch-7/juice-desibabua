@@ -8,7 +8,7 @@ describe("currentBeverageDetail", function() {
   it("it should make a correct object for given argument", function() {
     let time = "date1";
     let actual = currentBeverageDetail(
-      ["-beverage", "watermelon", "- EmployID", "13984", "qty", "1"],
+      ["--beverage", "watermelon", "--empId", "13984", "--qty", "1"],
       time
     );
     let expected = {
@@ -25,11 +25,34 @@ describe("record Updater", function() {
   let address = "./test/testing.json";
   it("should give write output for 1 st argument", function() {
     let userArgs = [
-      "-beverage",
+      "--beverage",
       "watermelon",
-      "- EmployID",
+      "--empId",
       "13984",
-      "qty",
+      "--qty",
+      "1"
+    ];
+    let previousTransactions = [];
+    let time = "date1";
+    let actualValue = recordUpdater(
+      userArgs,
+      previousTransactions,
+      address,
+      time
+    );
+    let expectedValue = [
+      {"--empId":"13984", "--beverage":"watermelon", "--qty":"1", "--date":"date1"}
+    ];
+    assert.deepStrictEqual(actualValue, expectedValue);
+  });
+
+  it("should give write output for argument in which user arg in differnt sequence", function() {
+    let userArgs = [
+      "--empId",
+      "13984",
+      "--beverage",
+      "watermelon",
+      "--qty",
       "1"
     ];
     let previousTransactions = [];
@@ -48,11 +71,11 @@ describe("record Updater", function() {
 
   it("should give write output for  argument other than first command", function() {
     let userArgs = [
-      "-beverage",
+      "--beverage",
       "orange",
-      "- EmployID",
+      "--empId",
       "13984",
-      "qty",
+      "--qty",
       "1"
     ];
     let previousTransactions = [
@@ -73,7 +96,7 @@ describe("record Updater", function() {
   });
 
   it("should update record when there are some previous records.", function() {
-    let userArgs = ["-beverage", "orange", "- EmployID", "139", "qty", "1"];
+    let userArgs = ["--beverage", "orange", "--empId", "139", "--qty", "1"];
     let previousTransactions = [
       {"--empId":"13984", "--beverage":"watermelon", "--qty":"1", "--date":"date1"},
       {"--empId":"13984", "--beverage":"orange", "--qty":"1", "--date":"date2"}

@@ -10,7 +10,7 @@ describe("messageForSave", function() {
   it("should give correct formate message for save option", function() {
     let time = new Date();
     let actualValue = messageForSave(
-      ["--beverage", "orange", "--EmployID", "133", "--qty", "2"],
+      ["--beverage", "orange", "--empId", "133", "--qty", "2"],
       time
     );
     let expectedValue = [
